@@ -3,14 +3,32 @@
 {% block title %}List{% endblock title %}
 
 {% block content %}
+<h2 class = "first-title">.. Check These are Some of the Most Amazing Countries to Travel .. </h2>
 <br>
-<div class="row">
-  {% for destination in destinations %}
-  <a href="{% url 'destination-detail' destination.id %}">
-    <img src="{{destination.pretty_picture.url}}" />
-    <p>{{destination.name}}</p>
-    <p>{{destination.activities}}</p>
-  </a>
-  {% endfor %}
+<div class="container">
+  <div class="row justify-content-center">
+        {% for destination in destinations %}
+        <div class="col-md-6 .ml-md-auto">
+          <div class="card mb-3">
+              <img src="{{destination.pretty_picture.url}}" height="500"/>
+            	<div class="card-body">
+            		<p class="card-text">If you like {{destination.activities}}. <strong>Check,</strong></p>
+              </div>
+              <div class="card-body">
+              	<h5><a class="card-title" href="{% url 'destination-detail' destination.id %}" >{{destination.name}}</a></h5>
+              </div>
+              	<div> 
+              		<p class="holiday">The best season is: <strong class="bld">{{destination.optimal_visiting_season}}</strong></p>
+              		<br>
+            		</div>
+            </div>
+          </div>
+        {% endfor %}
+  </div>
 </div>
-{% endblock content %}
+  {% endblock content %}
+
+  
+
+
+  
